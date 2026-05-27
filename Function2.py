@@ -5,3 +5,8 @@ val1=int(input("Enter the first integer:"))
 val2=int(input("Enter the second integer:"))
 result=add_mul(val1,val2)
 print (result)
+
+if num in numbers_dict:
+    print(numbers_dict[num])
+else:
+    print("Number not found in dictionary!")

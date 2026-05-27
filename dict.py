@@ -1,0 +1,7 @@
+print(dict())
+numbers = dict(x=5, y=0)
+print(numbers)
+numbers1 = dict({'x':4, 'y':5})
+print(numbers1)
+numbers1 = dict([('x',5), ('y',-5)])
+print(numbers1)
