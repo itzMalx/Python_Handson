@@ -11,8 +11,8 @@ driver.get("https://automationexercise.com")
 wait = WebDriverWait(driver, 15)
 
 wait.until(EC.element_to_be_clickable((By.XPATH, "//a[normalize-space()='Signup / Login']"))).click()
-wait.until(EC.visibility_of_element_located((By.XPATH, "//input[@placeholder='Name']"))).send_keys("Mythily")
-driver.find_element(By.XPATH, "//input[@data-qa='signup-email']").send_keys("mythily_test123@gmail.com")
+wait.until(EC.visibility_of_element_located((By.XPATH, "//input[@placeholder='Name']"))).send_keys("Malavicka")
+driver.find_element(By.XPATH, "//input[@data-qa='signup-email']").send_keys("mala_test123@gmail.com")
 driver.find_element(By.XPATH, "//button[text()='Signup']").click()
 
 try:
