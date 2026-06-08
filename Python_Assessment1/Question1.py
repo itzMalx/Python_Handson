@@ -1,51 +1,45 @@
-students = { "25MCA001": 77, "25MCA009": 60,"25MCA025": 99, "25MCA007": 84,"25MCA012": 45,"25MCA021": 86,"25MCA032": 83,   "25MCA018": 40,"25MCA014": 67
-}
-max_marks = max(students.values())
-min_marks = min(students.values())
-print("Maximum:", max_marks)
-for usn, mark in students.items():
-    if mark == max_marks:
-        print(usn)
-
-print("Minimum:", min_marks)
-for usn, mark in students.items():
-    if mark == min_marks:
-        print(usn)
-
-distinction = []
+dict = {"25MCA001": 77, "25MCA009": 60, "25MCA025": 99, "25MCA012":45,
+        "25MCA007":84,"25MCA021":86, "25MCA032":83,
+        "25MCA018":40, "25MCA014":67}
+highest = 0
+lowest = 100
+pass_count = 0
+fail_count = 0
+dist = []
 merit = []
-passed = []
-failed = []
-distinction=[]
-for usn, mark in students.items():
-    if 86 <= mark <= 100:
-        distinction.append(usn)
-    elif 76 <= mark <= 85:
-        merit.append(usn)
-    elif 60 <= mark <= 75:
-        passed.append(usn)
+failed_students = []
+
+for key, value in dict.items():
+
+    if value > highest:
+        highest = value
+
+    if value < lowest:
+        lowest = value
+
+    if value >= 86:
+        dist.append(value)
+
+    elif 76 <= value <= 85:
+        merit.append(value)
+
+    elif 60 <= value <= 75:
+        pass_count += 1
+
     else:
-        failed.append(usn)
+        fail_count += 1
+        failed_students.append(value)
 
-print("Distinction:", len(distinction), distinction)
-print("Merit:", len(merit), merit)
-print("Pass:", len(passed), passed)
-print("Fail:", len(failed), failed)
+print("Highest Mark :", highest)
+print("Lowest Mark :", lowest)
+print("Distinction :", len(dist), "->", dist)
+print("Merit :", len(merit), "->", merit)
+print("Pass Count :", pass_count)
+print("Fail Count :", fail_count)
+print("Failed Marks :", failed_students)
+average = sum(dict.values()) / len(dict)
 
-avg = sum(students.values()) / len(students)
+print("Average Mark :", average)
 
-print("Class Average:", round(avg, 2))
-
-below_avg = []
-
-for usn, mark in students.items():
-    if mark < avg:
-        below_avg.append(usn)
-
-print("Below Average:", below_avg)
-
-leaderboard = sorted(students.items(), key=lambda x: x[1], reverse=True)
-
-print("-----Leaderboard------")
-for usn, mark in leaderboard:
-    print(usn, ":", mark)
+print("----- LeaderBoard-----")
+print(highest)
