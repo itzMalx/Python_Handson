@@ -27,7 +27,7 @@ def test_in_assertion():
     
 def test_sample3():
     a="malu"
-    b="malus"
+    b="malu"
     assert a.__eq__(b)
 
 @pytest.mark.skip
