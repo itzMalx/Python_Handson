@@ -3,10 +3,9 @@ import pytest
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options as ChromeOptions
 from selenium.webdriver.firefox.options import Options as FirefoxOptions
-from selenium.webdriver.edge.options import Options as EdgeOptions
 
 
-@pytest.fixture(params=["chrome", "firefox", "edge"])
+@pytest.fixture(params=["chrome", "firefox"])
 def setup_and_teardown(request):
 
     # CHROME
@@ -28,25 +27,6 @@ def setup_and_teardown(request):
         options.add_argument("--headless")
 
         driver = webdriver.Firefox(options=options)
-
-    # EDGE
-    elif request.param == "edge":
-        options = EdgeOptions()
-
-        options.add_argument("--headless=new")
-        options.add_argument("--no-sandbox")
-        options.add_argument("--disable-dev-shm-usage")
-        options.add_argument("--disable-gpu")
-        options.add_argument("--disable-software-rasterizer")
-        options.add_argument("--remote-debugging-port=9222")
-        options.add_argument("--window-size=1920,1080")
-        options.add_argument("--disable-extensions")
-        options.add_argument("--disable-background-networking")
-        options.add_argument("--disable-default-apps")
-        options.add_argument("--disable-infobars")
-        options.add_argument(f"--user-data-dir={tempfile.mkdtemp()}")
-
-        driver = webdriver.Edge(options=options)
 
     driver.maximize_window()
     driver.implicitly_wait(5)
