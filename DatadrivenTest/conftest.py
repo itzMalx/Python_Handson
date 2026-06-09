@@ -1,3 +1,5 @@
+import os
+import tempfile
 import pytest
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options as ChromeOptions
@@ -27,6 +29,10 @@ def setup_and_teardown(request):
         options.add_argument("--disable-gpu")
         options.add_argument("--disable-software-rasterizer")
         options.add_argument("--remote-debugging-port=0")
+        options.add_argument("--disable-extensions")
+        options.add_argument("--disable-background-networking")
+        options.add_argument("--disable-default-apps")
+        options.add_argument(f"--user-data-dir={tempfile.mkdtemp()}")
         driver = webdriver.Edge(options=options)
 
     driver.maximize_window()
