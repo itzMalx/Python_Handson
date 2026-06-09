@@ -1,0 +1,11 @@
+2026-06-09 16:54:04 PM - INFO - --Test Started--
+2026-06-09 16:54:08 PM - INFO - Chrome Browser Launched
+2026-06-09 16:54:08 PM - INFO - Browser Maximized
+2026-06-09 16:54:16 PM - INFO - Navigated to Demoblaze Website
+2026-06-09 16:54:16 PM - INFO - Clicked Login Button
+2026-06-09 16:54:22 PM - INFO - Entered Username: Malavicka
+2026-06-09 16:54:27 PM - INFO - Entered Password
+2026-06-09 16:54:29 PM - INFO - Clicked Login Submit Button
+2026-06-09 16:54:32 PM - INFO - Login Test Passed
+2026-06-09 16:54:35 PM - INFO - Browser Closed
+2026-06-09 16:54:35 PM - INFO - --- Test Completed ---
