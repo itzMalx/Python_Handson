@@ -1,11 +1,8 @@
 import pytest
-@pytest.mark.smoke
 def test_sample_one():
     print("Hai")
-@pytest.mark.regression
 def test_sample1():
     print("Welcome")
-@pytest.mark.regression
 def test_sample2():
     print("Pytest")
 
@@ -29,7 +26,3 @@ def test_sample3():
     a="malu"
     b="malu"
     assert a.__eq__(b)
-
-@pytest.mark.skip
-def test_skip_example():
-    print("This test is skipped")
