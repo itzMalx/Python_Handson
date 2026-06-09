@@ -24,6 +24,9 @@ def setup_and_teardown(request):
         options.add_argument("--headless")
         options.add_argument("--no-sandbox")
         options.add_argument("--disable-dev-shm-usage")
+        options.add_argument("--disable-gpu")
+        options.add_argument("--disable-software-rasterizer")
+        options.add_argument("--remote-debugging-port=0")
         driver = webdriver.Edge(options=options)
 
     driver.maximize_window()
