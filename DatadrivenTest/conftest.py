@@ -1,16 +1,31 @@
 import pytest
 from selenium import webdriver
-from selenium.webdriver.common.by import By
+from selenium.webdriver.chrome.options import Options as ChromeOptions
+from selenium.webdriver.firefox.options import Options as FirefoxOptions
+from selenium.webdriver.edge.options import Options as EdgeOptions
 
 
-@pytest.fixture(params=["chrome","firefox","edge"])
+@pytest.fixture(params=["chrome", "firefox", "edge"])
 def setup_and_teardown(request):
     if request.param == "chrome":
-        driver = webdriver.Chrome()
+        options = ChromeOptions()
+        options.add_argument("--headless")
+        options.add_argument("--no-sandbox")
+        options.add_argument("--disable-dev-shm-usage")
+        driver = webdriver.Chrome(options=options)
+
     elif request.param == "firefox":
-        driver = webdriver.Firefox()
+        options = FirefoxOptions()
+        options.add_argument("--headless")
+        driver = webdriver.Firefox(options=options)
+
     elif request.param == "edge":
-        driver = webdriver.Edge()
+        options = EdgeOptions()
+        options.add_argument("--headless")
+        options.add_argument("--no-sandbox")
+        options.add_argument("--disable-dev-shm-usage")
+        driver = webdriver.Edge(options=options)
+
     driver.maximize_window()
     driver.implicitly_wait(5)
     driver.get("https://tutorialsninja.com/demo/")
